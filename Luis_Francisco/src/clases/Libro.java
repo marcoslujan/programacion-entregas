@@ -72,7 +72,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Clases.Libro{" +
+        return "Libro{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +

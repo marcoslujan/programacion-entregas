@@ -46,7 +46,7 @@ public class Biblioteca {
 
     @Override
     public String toString() {
-        return "Clases.Biblioteca{" +
+        return "Biblioteca{" +
                 "nombre='" + nombre + '\'' +
                 ", libros=" + libros +
                 '}';

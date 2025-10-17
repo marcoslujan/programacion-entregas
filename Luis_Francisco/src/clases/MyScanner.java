@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyScanner {
+
     private static Scanner sc;
 
     public MyScanner() {
