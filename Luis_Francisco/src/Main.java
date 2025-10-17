@@ -151,7 +151,7 @@ public class Main {
 
     public static void prestarLibro(ArrayList<Libro> libros) {
         MyScanner sc = new MyScanner();
-        int n, opcion, id, contador = 0;
+        int n, opcion, id;
         String nombre;
         boolean flag = true, flag2 = false;
         for  (n = 0; n < libros.size(); n++) {
@@ -175,8 +175,12 @@ public class Main {
                 opcion = sc.pedirNumero("Introduzca el id del libro que quiere coger: ");
                 for (n = 0; n < libros.size(); n++) {
                     if (libros.get(n).getId() == opcion) {
-                        libros.get(n).setDisponible(false);
-                        flag = false;
+                        if (libros.get(n).isDisponible()) {
+                            libros.get(n).setDisponible(false);
+                            flag = false;
+                        }else {
+                            System.out.println("Ese libro no puede prestar");
+                        }
                     }
                 }
                 if (flag) {
@@ -189,7 +193,7 @@ public class Main {
 
     public static void devolverLibro(ArrayList<Libro> libros) {
         MyScanner sc = new MyScanner();
-        int n, opcion, id, contador = 0;
+        int n, opcion, id;
         String nombre;
         boolean flag = true, flag2 = true;
         for  (n = 0; n < libros.size(); n++) {
@@ -213,8 +217,12 @@ public class Main {
                 opcion = sc.pedirNumero("Introduzca el id del libro que quiere devoler: ");
                 for (n = 0; n < libros.size(); n++) {
                     if (libros.get(n).getId() == opcion) {
-                        libros.get(n).setDisponible(true);
-                        flag = false;
+                        if (!libros.get(n).isDisponible()) {
+                            libros.get(n).setDisponible(true);
+                            flag = false;
+                        }else  {
+                            System.out.println("Ese libro no puede devoler, ya se encuentra en la biblioteca");
+                        }
                     }
                 }
                 if (flag) {
@@ -228,10 +236,13 @@ public class Main {
     public static void mostrarLibro(ArrayList<Libro> libros) {
         int n,contador=1;
         System.out.println("Los libros que hay en esta libreria son:");
+        System.out.println("------------------------------------------------------------------");
         for (n = 0; n < libros.size(); n++) {
             System.out.println(contador+"- id: "+libros.get(n).getId()+" titulo: "+libros.get(n).getTitulo()+", autor: "+libros.get(n).getAutor()+", número de páginas: "+libros.get(n).getNumeroPaginas()+", ISBN: "+libros.get(n).getISBN());
             contador++;
         }
+        System.out.println("------------------------------------------------------------------");
     }
+
 
 }
