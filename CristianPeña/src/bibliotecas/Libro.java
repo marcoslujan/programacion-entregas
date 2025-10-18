@@ -1,4 +1,4 @@
-package Biblioteca;
+package biblioteca.bibliotecas;
 
 public class Libro {
 
