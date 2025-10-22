@@ -1,6 +1,6 @@
-package Biblioteca;
+package biblioteca;
 
-import Libro.Libro;
+import libro.Libro;
 
 import java.util.ArrayList;
 
