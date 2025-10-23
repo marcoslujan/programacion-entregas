@@ -1,18 +1,15 @@
-package Biblioteca;
-
 import java.util.ArrayList;
 
 public class Biblioteca {
-
     private int id;
-    private String nombre;
+    private  String nombre;
     private ArrayList<Libro> libros;
 
     public Biblioteca() {
-        this.libros = new ArrayList<>();
+
     }
 
-    public Biblioteca(int id, String nombre) {
+    public Biblioteca(int id,String nombre, ArrayList<Libro> libros) {
         this.id = id;
         this.nombre = nombre;
         this.libros = new ArrayList<>();
@@ -46,32 +43,19 @@ public class Biblioteca {
         this.libros.add(libro);
     }
 
-    public void prestarLibro(Libro libro) {
-        libro.setDisponible(false);
+    public void prestarLibro(Libro libros) {
+        libros.setDisponible(false);
     }
 
-    public void devolverLibro(Libro libro) {
-        libro.setDisponible(true);
+    public void devolverLibro(Libro libros) {
+        libros.setDisponible(true);
     }
-    public void mostrarLibro() {
-        if (libros.isEmpty()) {
-            System.out.println("No hay libros para mostrar.");
-        } else {
-            System.out.println("\n--- Lista de Libros ---");
-            for (Libro libro : libros) {
-                System.out.println(libro);
-            }
-        }
-    }
-
 
     @Override
     public String toString() {
         return "Biblioteca{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", libros=" + libros +
                 '}';
     }
-
 }

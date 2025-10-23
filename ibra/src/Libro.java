@@ -1,5 +1,3 @@
-package Biblioteca;
-
 public class Libro {
 
     private int id;
@@ -81,4 +79,9 @@ public class Libro {
                 ", disponible=" + disponible +
                 '}';
     }
+
+    public boolean resumen() {
+        return false;
+    }
 }
+
