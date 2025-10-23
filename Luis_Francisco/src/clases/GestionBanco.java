@@ -83,6 +83,9 @@ public class GestionBanco {
                 case 3:
                     flag = false;
                     break;
+                default:
+                    System.out.println("Opcion incorrecta");
+                    break;
             }
         }
     }
