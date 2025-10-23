@@ -6,7 +6,7 @@ public class MenuBanco {
     private static final MyScanner sc = new MyScanner();
     static Persona persona = new Persona();
 
-    public static void main(String[] args) throws MyException {
+    public static void main(String[] args) throws MyExceptionBanco {
         datosPersona();
         menuBanco();
     }
@@ -16,7 +16,7 @@ public class MenuBanco {
     persona.setEdad(sc.pedirNumero("Introduzca su edad: "));
     }
 
-    public static void menuBanco() throws MyException {
+    public static void menuBanco() throws MyExceptionBanco {
 
         boolean continuar = true;
         while (continuar) {
@@ -56,7 +56,7 @@ public class MenuBanco {
         return persona.getDinero_en_banco();
     }
 
-    public static void sacarDinero() throws MyException {
+    public static void sacarDinero() throws MyExceptionBanco {
 
         try {
             int base = persona.getDinero_en_banco();

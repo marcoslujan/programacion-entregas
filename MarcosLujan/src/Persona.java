@@ -1,10 +1,10 @@
-import clases.Dirección;
+import clases.Direccion;
 
 public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
-    private Dirección direccion;
+    private Direccion direccion;
     private int dinero_en_banco;
 
     public Persona() {
@@ -42,11 +42,11 @@ public class Persona {
         this.edad = edad;
     }
 
-    public Dirección getDireccion() {
+    public Direccion getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(Dirección direccion) {
+    public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
 
