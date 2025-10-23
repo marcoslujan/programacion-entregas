@@ -68,4 +68,8 @@ public class MyScanner {
         return texto;
     }
 
+    public void cerrar() {
+        sc.close();
+    }
+
 }

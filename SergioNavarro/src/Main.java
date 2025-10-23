@@ -92,7 +92,7 @@ public class Main {
 
         for (int i = 0; i < libros.size(); i++) {
             Libro l = libros.get(i);
-            if (l.getISBN().equals(isbn)) {
+            if (l.getISBN().equals(isbn)) {  // Comparación simple
                 encontrado = true;
                 prestados.add(l);     // Mover a lista de prestados
                 libros.remove(i);     // Quitar de biblioteca
