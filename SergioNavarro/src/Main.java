@@ -92,7 +92,7 @@ public class Main {
 
         for (int i = 0; i < libros.size(); i++) {
             Libro l = libros.get(i);
-            if (l.getISBN().equals(isbn)) {  // Comparación simple
+            if (l.getISBN().equals(isbn)) {
                 encontrado = true;
                 prestados.add(l);     // Mover a lista de prestados
                 libros.remove(i);     // Quitar de biblioteca
@@ -147,7 +147,7 @@ public class Main {
                 valido = true;
             } catch (InputMismatchException e) {
                 System.out.println("Eso no es un número. Intenta de nuevo.");
-                sc.nextLine(); // Limpiar el buffer
+                sc.nextLine();
             }
         }
         return n;
