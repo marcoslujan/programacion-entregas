@@ -1,4 +1,4 @@
-package clases;
+package banco;
 
 public class Direccion {
     private String calle;

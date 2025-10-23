@@ -1,6 +1,6 @@
 package banco;
 
-import clases.Direccion;
+import Direccion;
 
 public class Persona {
     private String nombre;

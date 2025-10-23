@@ -1,4 +1,4 @@
-package banco;
+package clases;
 
 import MyScanner;
 import Pobreza;
@@ -59,7 +59,8 @@ public class FuncBanco {
     }
 
     public void meterDinero() throws Pobreza {
-        persona.setDinero_en_banco(scanner.pedirNumero("Cuanto dinero quieres meter?"));
+        int dineroAñadido= scanner.pedirNumero("Cuanto dinero quieres meter");
+        persona.setDinero_en_banco(persona.getDinero_en_banco()+dineroAñadido);
         System.out.println("Dinero ingressado con exito!!");
         menu();
     }

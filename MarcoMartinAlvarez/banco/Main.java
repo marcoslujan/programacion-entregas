@@ -1,6 +1,4 @@
-package banco;
-
-import banco. Pobreza;
+package clases;
 
 public class Main {
     public static void main(String[] args) throws Pobreza {
