@@ -1,44 +1,60 @@
-package proyecto_final;
-import java.io.InputStream;
+package clases;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyScanner {
     private static Scanner sc;
 
-    public MyScanner(InputStream in) {
+    public MyScanner() {
         sc = new Scanner(System.in);
     }
 
-    public static int comprobar_Numero(String mns) {
-        int n= -1;
+    public static int pedirNumero(String mns) {
+        int n = -1;
         boolean flag = true;
         while (flag) {
             try {
                 System.out.println(mns);
-                n= sc.nextInt();
+                n = sc.nextInt();
                 sc.nextLine();
                 flag = false;
             } catch (InputMismatchException e) {
-                System.out.println("Eso no es un número!");
+                System.out.println("Eso no es número!");
                 sc.nextLine();
             }
         }
         return n;
     }
 
+    public double pedirDecimal(String mns) {
+        double num = -1;
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.printf(mns);
+                num = sc.nextDouble();
+                sc.nextLine();
+                flag = false;
+            }catch (InputMismatchException e) {
+                System.out.println("Eso no es número!");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
 
-    public static String comprobar_SoloTexto(String texto) {
+    public static String pedirSoloTexto(String texto) {
         String input;
         boolean valido;
         do {
             System.out.println(texto);
             input = sc.nextLine().trim();
-            valido = input.matches("[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇñÑ ]+");        // Con el + se puede hacer una cadena (introducir mas de uno de los de la lsita)
-            if (!valido){
-                System.out.println("ERROR: Solo se permiten letras (sin números ni símbolos). Intentalo de nuevo");
+            valido = input.matches("[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇñÑ ]+"); // Con el + se puede hacer una cadena (introducir mas de uno de los de la lsita)
+            if (!valido) {
+                System.out.println("ERROR: solo se permiten letras (sin números ni símbolos). Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }  while (!valido);
         return input;
     }
 
@@ -56,17 +72,19 @@ public class MyScanner {
         return input;
     }
 
-    public static char comprobar_Letra(String texto){
+
+    public char pedirLetra(String texto) {
         String input;
         boolean valido;
         do {
             System.out.println(texto);
             input = sc.nextLine().trim();
-            valido = input.matches("[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇñÑ ]");          // Sin el + solo se puede intruducir uno de los de la lsita
-            if (!valido){
-                System.out.println("ERROR: Solo se permite introducir una letra. Intentalo de nuevo");
+            valido = input.matches("[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇñÑ ]");
+            if (!valido) {
+                System.out.println("ERROR: solo se permite introducir una letra. Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }while (!valido);
+
         return input.charAt(0);
     }
 
@@ -80,6 +98,10 @@ public class MyScanner {
             }
         } while (texto.isEmpty());
         return texto;
+    }
+
+    public void cerrar() {
+        sc.close();
     }
 
 }
