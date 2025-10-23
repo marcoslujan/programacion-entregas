@@ -1,4 +1,5 @@
 package carlossuquilanda.src.clases;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class MyScanner {
         sc = new Scanner(System.in);
     }
 
-    public static int pedirNumero(String mns) {
+    public int pedirNumero(String mns) {
         int n = -1;
         boolean flag = true;
         while (flag) {
@@ -19,19 +20,35 @@ public class MyScanner {
                 sc.nextLine();
                 flag = false;
             } catch (InputMismatchException e) {
-                System.out.println("\n❌Eso no es número❌");
-                System.out.println("🔢Por favor ingrese un numero🔢\n");
+                System.out.println("Eso no es número!");
                 sc.nextLine();
             }
         }
         return n;
     }
 
+    public double pedirDecimal(String mns) {
+        double num = -1;
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.printf(mns);
+                num = sc.nextDouble();
+                sc.nextLine();
+                flag = false;
+            }catch (InputMismatchException e) {
+                System.out.println("Eso no es número!");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
+
     public String pedirSoloTexto(String texto) {
         String input;
         boolean valido;
         do {
-            System.out.println(texto);
+            System.out.print(texto);
             input = sc.nextLine().trim();
             valido = input.matches("[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ ]+");
             if (!valido) {
@@ -45,7 +62,7 @@ public class MyScanner {
         String input;
         boolean valido;
         do {
-            System.out.println(texto);
+            System.out.print(texto);
             input = sc.nextLine().trim();
             valido = input.matches("[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ ]");
             if (!valido) {
@@ -59,13 +76,17 @@ public class MyScanner {
     public String pideTexto(String mensaje) {
         String texto;
         do {
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             texto = sc.nextLine();
             if (texto.isEmpty()) {
                 System.out.println("Error: el campo no puede estar vacio.");
             }
         } while (texto.isEmpty());
         return texto;
+    }
+
+    public void cerrar() {
+        sc.close();
     }
 
 }
