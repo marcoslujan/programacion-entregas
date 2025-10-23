@@ -1,7 +1,7 @@
-package Banco;
+package banco;
 
-import clases.MyScanner;
-import excepcion.Pobreza;
+import MyScanner;
+import Pobreza;
 
 public class FuncBanco {
 
@@ -32,6 +32,7 @@ public class FuncBanco {
                 sacarDinero();
                 break;
             case 3:
+                meterDinero();
                 break;
             case 4:
                 exit = false;

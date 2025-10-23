@@ -1,6 +1,6 @@
-package Banco;
+package banco;
 
-import excepcion.Pobreza;
+import banco. Pobreza;
 
 public class Main {
     public static void main(String[] args) throws Pobreza {
