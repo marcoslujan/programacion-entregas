@@ -24,7 +24,7 @@ public class GestionBanco {
                 System.out.println("Tiene que ser mayor de 18 para poder tener una cuenta bancaria.");
                 continuar = false;
             }
-        }while(continuar);
+        }while(!continuar);
         persona.setEdad(edad);
         persona.setDireccion(direccion);
         persona.getDireccion().setCalle(sc.pedirSoloTexto("Introduza su calle: "));
@@ -35,7 +35,7 @@ public class GestionBanco {
                 System.out.println("El numero de su portal tiene que ser mayor a 0.");
                 continuar = false;
             }
-        }while(continuar);
+        }while(!continuar);
         persona.getDireccion().setPortal(portal);
         persona.getDireccion().setPiso(sc.pedirNumero("Introduza su piso: "));
         persona.getDireccion().setLetra(sc.pedirLetra("Introduza su letra: "));
@@ -57,7 +57,7 @@ public class GestionBanco {
                             System.out.println("la cantidad introducida tiene que ser mayor que 0");
                             flag3 = false;
                         }
-                    }while (flag3);
+                    }while (!flag3);
                     persona.setDinero_en_banco(persona.getDinero_en_banco() + meter);
                     break;
                 case 2:
