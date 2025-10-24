@@ -1,7 +1,6 @@
-package proyecto_final;
+package Programacion;
 
 import clases.Personaje;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -27,8 +26,8 @@ public class MiniJuego {
             turnos(pj1, pj2, opcion1, opcion2);
 
             System.out.println("\nTurno: " + turno);
-            System.out.println("Vida del Personaje1: " + pj1.getVida());
-            System.out.println("Vida del Personaje2: " + pj2.getVida());
+            System.out.println("Personaje1: Vida = " + pj1.getVida() + "; Defensa: " + pj1.getDefensa());
+            System.out.println("Personaje2: Vida = " + pj2.getVida() + "; Defensa: " + pj2.getDefensa());
 
             if (pj1.getVida() <= 0 || pj2.getVida() <= 0) {
                 break;
@@ -71,29 +70,61 @@ public class MiniJuego {
 
     public static void turnos(Personaje pj1, Personaje pj2, int opcion1, int opcion2) {
 
-        if(opcion1 == 1 && opcion2 == 2) {
-            int ataque = pj1.getAtaque();
-            int defensa = pj2.getDefensa();
-            pj2.setDefensa(defensa - ataque);
-            System.out.println("Personaje1 ataca a Personaje2 que se defiende del ataque. Nadie pierde vida.");
+        if (opcion1 == 1 && opcion2 == 1) { // Ambos atacan
+            atacar(pj1, pj2);
+            atacar(pj2, pj1);
+            System.out.println("Los dos atacan y se golpean mutuamente");
+        }
+        else if (opcion1 == 1 && opcion2 == 2) { // PJ1 ataca, PJ2 defiende
+            System.out.println("Personaje1 ataca y Personaje2 se defiende!");
+            defender(pj2, pj1.getAtaque());
+        }
+        else if (opcion1 == 2 && opcion2 == 1) { // PJ2 ataca, PJ1 defiende
+            System.out.println("Personaje2 ataca y Personaje1 se defiende!");
+            defender(pj1, pj2.getAtaque());
+        }
+        else {
+            System.out.println("Los dos se defienden, nadie recibe daño.");
+        }
+    }
 
-        } else if(opcion1 == 2 && opcion2 == 1) {
-            int ataque = pj2.getAtaque();
-            int defensa = pj1.getDefensa();
-            pj1.setDefensa(defensa - ataque);
-            System.out.println("Personaje2 ataca a Personaje1 que se defiende del ataque. Nadie pierde vida.");
+    public static void atacar(Personaje atacante, Personaje defensor) {
+        int daño = atacante.getAtaque();
 
-        } else if(opcion1 == 1 && opcion2 == 1) {
-            int vida1 = pj2.getVida();
-            int ataque1 = pj1.getAtaque();
-            pj2.setVida(vida1 - ataque1);
-            int vida2 = pj1.getVida();
-            int ataque2 = pj2.getAtaque();
-            pj1.setVida(vida2 - ataque2);
-            System.out.println("Los dos atacais. Ambos sufris daño");
+        if (defensor.getDefensa() > 0) {
+            int nuevaDefensa = defensor.getDefensa() - daño;
 
-        }else if(opcion1 == 2 && opcion2 == 2) {
-            System.out.println("Los dos defendeis. Ninguno sufre daño");
+            if (nuevaDefensa >= 0) {
+                defensor.setDefensa(nuevaDefensa);
+                System.out.println(daño + " puntos de defensa destruidos. (Defensa restante: " + defensor.getDefensa() + ")");
+            } else {
+                int dañoRestante = Math.abs(nuevaDefensa);
+                defensor.setDefensa(0);
+                defensor.setVida(Math.max(defensor.getVida() - dañoRestante, 0));
+                System.out.println("La defensa cayó a 0. El ataque hace " + dañoRestante + " de daño a la vida.");
+            }
+        } else {
+            defensor.setVida(Math.max(defensor.getVida() - daño, 0));
+            System.out.println("Sin defensa. Ataque directo de " + daño + " puntos a la vida.");
+        }
+    }
+
+    public static void defender(Personaje defensor, int ataque) {
+        if (defensor.getDefensa() > 0) {
+            int nuevaDefensa = defensor.getDefensa() - ataque;
+            if (nuevaDefensa >= 0) {
+                defensor.setDefensa(nuevaDefensa);
+                System.out.println("El ataque reduce la defensa en " + ataque + " puntos.");
+            } else {
+                // Parte del daño pasa a la vida
+                int dañoRestante = Math.abs(nuevaDefensa);
+                defensor.setDefensa(0);
+                defensor.setVida(Math.max(defensor.getVida() - dañoRestante, 0));
+                System.out.println("La defensa se rompe. El ataque hace " + dañoRestante + " de daño a la vida.");
+            }
+        } else {
+            defensor.setVida(Math.max(defensor.getVida() - ataque, 0));
+            System.out.println("Sin defensa. Recibe " + ataque + " de daño a la vida.");
         }
     }
 }
