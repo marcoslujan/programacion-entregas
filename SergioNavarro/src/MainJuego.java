@@ -57,7 +57,7 @@ public class MainJuego {
             } else if (opcion1 == 2 && opcion2 == 2) {
                 if (pj1.getVida() < 1000) pj1.setVida(pj1.getVida() + 50);
                 if (pj2.getVida() < 1000) pj2.setVida(pj2.getVida() + 50);
-                System.out.println("Ambos se defienden (❤️+50 vida)");
+                System.out.println("Se miran intensamente (❤️+50 vida por descansar)");
 
                 // ATAQUE RÁPIDO
             } else if (opcion1 == 3 && opcion2 != 3) {
@@ -104,9 +104,19 @@ public class MainJuego {
                 }
 
             } else if (opcion1 == 4 && opcion2 == 4) {
-                System.out.println("Ambos cargan ataque");
-                pj1Carga = true;
-                pj2Carga = true;
+                if (pj1Carga && pj2Carga) {
+                    System.out.println("¡Ambos lanzan ataque cargado! (-210 vida cada uno)");
+                    pj1.setVida(pj1.getVida() - 210);
+                    pj2.setVida(pj2.getVida() - 210);
+                    pj1Carga = false;
+                    pj2Carga = false;
+                }
+                // Si solo están comenzando a cargar
+                else {
+                    System.out.println("Ambos comienzan a cargar (20% menos daño si reciben ataque)");
+                    pj1Carga = true;
+                    pj2Carga = true;
+                }
             }
 
             // ATAQUE RÁPIDO PENDIENTE
