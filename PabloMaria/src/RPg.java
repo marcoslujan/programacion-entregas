@@ -84,7 +84,7 @@ public class RPg {
                     break;
             }
 
-             if (pj1.getVida() == 0 ||  pj2.getVida() == 0) {
+             if (pj1.getVida() == 0) {
                 System.out.println("Jugador 1 eliminado \nJugador 2 gana");
                 flag = false;
                 break;
