@@ -2,10 +2,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyScanner {
+    private static Scanner sc;
 
-    private static Scanner sc = new Scanner(System.in);
+    public MyScanner() {
+        sc = new Scanner(System.in);
+    }
 
-    public static int pedirNumero(String mns) {
+    public int pedirNumero(String mns) {
         int n = -1;
         boolean flag = true;
         while (flag) {
@@ -22,7 +25,24 @@ public class MyScanner {
         return n;
     }
 
-    public static String pedirSoloTexto(String texto) {
+    public double pedirDecimal(String mns) {
+        double num = -1;
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.println(mns);
+                num = sc.nextDouble();
+                sc.nextLine();
+                flag = false;
+            }catch (InputMismatchException e) {
+                System.out.println("Eso no es número!");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
+
+    public String pedirSoloTexto(String texto) {
         String input;
         boolean valido;
         do {
@@ -32,34 +52,39 @@ public class MyScanner {
             if (!valido) {
                 System.out.println("ERROR: solo se permiten letras (sin números ni símbolos). Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }  while (!valido);
         return input;
     }
 
-    public static char pedirLetra(String texto) {
+    public char pedirLetra(String texto) {
         String input;
         boolean valido;
         do {
             System.out.println(texto);
             input = sc.nextLine().trim();
-            valido = input.matches("[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ]");
+            valido = input.matches("[a-zA-ZáéíóúüÁÉÍÓÚÜñÑ ]");
             if (!valido) {
                 System.out.println("ERROR: solo se permite introducir una letra. Inténtalo de nuevo.");
             }
-        } while (!valido);
+        }while (!valido);
 
         return input.charAt(0);
     }
 
-    public static String pideTexto(String mensaje) {
+    public String pideTexto(String mensaje) {
         String texto;
         do {
             System.out.println(mensaje);
-            texto = sc.nextLine().trim();
+            texto = sc.nextLine();
             if (texto.isEmpty()) {
-                System.out.println("Error: el campo no puede estar vacío.");
+                System.out.println("Error: el campo no puede estar vacio.");
             }
         } while (texto.isEmpty());
         return texto;
     }
+
+    public void cerrar() {
+        sc.close();
+    }
+
 }
