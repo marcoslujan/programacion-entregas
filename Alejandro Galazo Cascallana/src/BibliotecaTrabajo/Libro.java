@@ -1,3 +1,5 @@
+package BibliotecaTrabajo;
+
 public class Libro {
 
     private int id;
@@ -70,7 +72,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return "BibliotecaTrabajo.Libro{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +

@@ -1,11 +1,13 @@
 package Banco;
 
+import clases.Direccion;
+
 public class Persona {
     private String nombre;
     private String apellido;
     private int edad;
     private Direccion direccion;
-    private int dinero_en_banco;
+    private double dinero_en_banco;
 
     public Persona() {
         this.dinero_en_banco = 1000;
@@ -50,7 +52,7 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getDinero_en_banco() {
+    public double getDinero_en_banco() {
         return dinero_en_banco;
     }
 

@@ -1,3 +1,5 @@
+package BibliotecaTrabajo;
+
 import java.util.ArrayList;
 
 public class Biblioteca {
@@ -54,7 +56,7 @@ public class Biblioteca {
 
     @Override
     public String toString() {
-        return "Biblioteca{" +
+        return "BibliotecaTrabajo.Biblioteca{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", libros=" + libros +
