@@ -16,7 +16,7 @@ public class Juego {
             int opcion1 = pedirOpcion(sc, 1);
             int opcion2 = pedirOpcion(sc, 2);
 
-            // Decide al azar quién va primero
+            // Decide al azar que jugador va primero
             boolean pj1Primero = Math.random() < 0.5;
 
             if (pj1Primero) {
