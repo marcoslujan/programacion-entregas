@@ -84,7 +84,7 @@ public class MainJuego2 {
         else if (pj2.getVida() <= 0) {
             System.out.println("¡El juego ha terminado! ¡El jugador 1 ha ganado!");
         }
-        else if (turno >= 20) {
+        else if (turno >= 19) {
             System.out.println("¡La partida ha finalizado! ¡Os habéis quedado sin tiempo!");
         }
     }
