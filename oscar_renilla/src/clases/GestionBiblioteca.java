@@ -1,7 +1,5 @@
 package clases;
 
-import proyecto_final.MyScanner;
-
 public class GestionBiblioteca {
 
     public static void main(String[] args) {
