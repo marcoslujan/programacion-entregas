@@ -1,8 +1,8 @@
-package EjercicioGestionBiblioteca;
+package ejerciciogestionbiblioteca;
 
-import Biblioteca.Biblioteca;
-import Clases.MyScanner;
-import Libro.Libro;
+import biblioteca.Biblioteca;
+import clases.MyScanner;
+import libro.Libro;
 
 import java.util.ArrayList;
 import java.util.Scanner;

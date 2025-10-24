@@ -1,10 +1,11 @@
+import java.io.InputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Myscanner {
     private static Scanner sc;
 
-    public Myscanner() {
+    public Myscanner(InputStream in) {
         sc = new Scanner(System.in);
     }
 

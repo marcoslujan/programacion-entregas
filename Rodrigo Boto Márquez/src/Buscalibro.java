@@ -1,13 +1,13 @@
-import java.util.Scanner;
 
 public class Buscalibro {
 
+    private static MyScanner sc = new MyScanner();
+
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
         int idBiblioteca = (1);
-        System.out.print("Introduce el nombre de la biblioteca: ");
-        String nombre = sc.nextLine();
+
+        String nombre = sc.pideTexto("Introduce el nombre de la biblioteca: ");
         Biblioteca biblioteca = new Biblioteca(idBiblioteca, nombre);
         System.out.println("Biblioteca creada con ID: " + biblioteca.getId());
         Libro libro1 = new Libro(1, "El Quijote", "Miguel de Cervantes", 863, "9788491050291");
@@ -23,8 +23,7 @@ public class Buscalibro {
             System.out.println("4. Prestar libro");
             System.out.println("5. Devolver libro");
             System.out.println("6. Salir");
-            System.out.print("Elige una opción: ");
-            opcion = MyScanner.pedirNumero("");
+            opcion = sc.pedirNumero("Ingrese una opcion: ");
             switch (opcion) {
                 case 1:
                     mostrarTodosLosLibros(biblioteca);
@@ -79,10 +78,10 @@ public class Buscalibro {
 
     private static void agregarLibro(Biblioteca biblioteca) {
 
-        String titulo = MyScanner.pideTexto("Introduce el título del libro: ");
-        String autor = MyScanner.pedirSoloTexto("Introduce el autor: ");
-        int numPaginas = MyScanner.pedirNumero("Introduce el número de páginas: ");
-        String isbn = MyScanner.pideTexto("Introduce el ISBN: ");
+        String titulo = sc.pideTexto("Introduce el título del libro: ");
+        String autor = sc.pedirSoloTexto("Introduce el autor: ");
+        int numPaginas = sc.pedirNumero("Introduce el número de páginas: ");
+        String isbn = sc.pideTexto("Introduce el ISBN: ");
 
         for (Libro libro : biblioteca.getLibros()) {
             if (libro.getTitulo().equals(titulo) || libro.getISBN().equals(isbn)) {
@@ -109,7 +108,7 @@ public class Buscalibro {
             System.out.println("No se puede prestar ningún libro: todos están prestados.");
             return;
         }
-        int id = MyScanner.pedirNumero("Introduce el ID del libro a prestar: ");
+        int id = sc.pedirNumero("Introduce el ID del libro a prestar: ");
         for (Libro libro : biblioteca.getLibros()) {
             if (libro.getId() == id && libro.isDisponible()) {
                 biblioteca.prestarLibro(libro);
@@ -133,7 +132,7 @@ public class Buscalibro {
             System.out.println("No se puede devolver ningún libro: todos están disponibles.");
             return;
         }
-        int id = MyScanner.pedirNumero("Introduce el ID del libro a devolver: ");
+        int id = sc.pedirNumero("Introduce el ID del libro a devolver: ");
         for (Libro libro : biblioteca.getLibros()) {
             if (libro.getId() == id && !libro.isDisponible()) {
                 biblioteca.devolverLibro(libro);

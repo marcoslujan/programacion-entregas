@@ -1,8 +1,6 @@
-package biblioteca;
+package Biblioteca;
 
-
-import biblioteca.bibliotecas.Biblioteca;
-import biblioteca.bibliotecas.Libro;
+import Clases.MyScanner;
 
 import java.util.Scanner;
 public class Main {
