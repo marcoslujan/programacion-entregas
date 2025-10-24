@@ -48,7 +48,7 @@ public class MainJuego {
 
     public static void main(String[] args) {
         Personaje pj1 = new Personaje(100, 100, 50, "Guerrero 1");
-        Personaje pj2 = new Personaje(100, 100, 50, "Guerrero 2"); // Constructor sin nombre
+        Personaje pj2 = new Personaje(100, 100, 50, "Guerrero 2");
 
         System.out.println("=== COMBATE ===");
 
@@ -64,6 +64,14 @@ public class MainJuego {
             System.out.println("1. Atacar");
             System.out.println("2. Defender");
             int opcion2 = sc.pedirNumero("Opción: ");
+
+            if (opcion1 == 2 && opcion2 == 2) {
+                System.out.println("Se miran intensamente y se mueren de aburrimiento");
+                juegosigue = false;
+                System.out.println("\n=== FIN DEL COMBATE ===");
+                System.out.println("¡El combate terminó por aburrimiento mutuo!");
+                break;
+            }
 
             resolverTurno(pj1, pj2, opcion1, opcion2);
 
@@ -85,7 +93,7 @@ public class MainJuego {
         if (opcion1 == 1 && opcion2 == 2) {
             int ataque = pj1.getAtaque();
             int defensa = pj2.getDefensa();
-            int danio = Math.max(0, ataque - defensa );
+            int danio = Math.max(0, ataque - defensa);
             pj2.setVida(pj2.getVida() - danio);
             System.out.println(pj1.getNombre() + " ataca a " + pj2.getNombre() + " causando " + danio + " de daño.");
 
@@ -104,9 +112,6 @@ public class MainJuego {
             System.out.println("¡AMBOS ATACAN!");
             System.out.println(pj1.getNombre() + " causa " + danio1 + " de daño.");
             System.out.println(pj2.getNombre() + " causa " + danio2 + " de daño.");
-
-        } else if (opcion1 == 2 && opcion2 == 2) {
-            System.out.println("Ambos personajes se defienden. No hay daño.");
         }
     }
 }
