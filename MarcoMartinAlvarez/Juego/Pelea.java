@@ -18,15 +18,17 @@ public class Pelea {
         System.out.println("1. Atacar");
         System.out.println("2. Defender");
         int opcion1 = sc.pedirNumero("Opción: ");
+        if (opcion1 < 1 || opcion1 > 2) {
+            System.out.println("OPCION NO VALIDA, INTENTA DE NUEVO");
+            opcionesPelea();}
         System.out.println("Que va a hacer el pj2: ");
         System.out.println("1. Atacar");
         System.out.println("2. Defender");
         int opcion2 = sc.pedirNumero("Opcion: ");
-        if (opcion1 < 1 || opcion1 > 2 && opcion2 < 1 || opcion2 > 2) {
+        if (opcion2 < 1 || opcion2 > 2) {
             System.out.println("OPCION NO VALIDA, INTENTA DE NUEVO");
             opcionesPelea();
         }
-
         if (opcion1 == 1 && opcion2 == 2) {
             System.out.println("PJ1 ATACA Y PJ2 DEFIENDE");
             int ataque = pj1.getAtaque();
