@@ -51,7 +51,7 @@ public class Juego {
         sc.close();
     }
 
-    // 1 o 2
+    // 1 o 2,
     private static int pedirOpcion(Scanner sc, int jugador) {
         int opcion = 0;
         while (true) {
