@@ -1,4 +1,4 @@
-package Banco;
+package BibliotecaTrabajo;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

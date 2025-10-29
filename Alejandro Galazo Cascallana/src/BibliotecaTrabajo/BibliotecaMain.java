@@ -1,3 +1,5 @@
+package BibliotecaTrabajo;
+
 import java.util.ArrayList;
 
 
@@ -123,7 +125,7 @@ public class BibliotecaMain {
 
         if (libroAEliminar != null) {
             libros.remove(libroAEliminar);
-            System.out.println("Libro eliminado" + libroAEliminar.getTitulo());
+            System.out.println("BibliotecaTrabajo.Libro eliminado" + libroAEliminar.getTitulo());
         } else {
             System.out.println("No se encontró un libro con ese título y autor, comprueba que esté bien escrito, sino no lo tenemos");
         }
