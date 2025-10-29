@@ -44,9 +44,8 @@ public class FuncBanco {
     }
 }
     public void sacarDinero () throws Pobreza {
+        int sacar= scanner.pedirNumero("Cuanto dinero quieres sacar?");
         try {
-            int sacar= scanner.pedirNumero("Cuanto dinero quieres sacar?");
-
             if(sacar> persona.getDinero_en_banco()){
                 throw new Pobreza("No hay suficientes fondos");
             }
@@ -54,7 +53,8 @@ public class FuncBanco {
         } catch (Pobreza e) {
             System.out.println(e.getMessage());
         } finally {
-        menu();
+            persona.setDinero_en_banco(persona.getDinero_en_banco()-sacar);
+            menu();
         }
     }
 
